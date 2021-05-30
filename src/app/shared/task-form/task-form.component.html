@@ -1,0 +1,72 @@
+<form [formGroup]="addForm" (ngSubmit)="addTask(addForm)">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 px-0 text-left mt-3">
+                <h4 class="h6 font-weight-bold">{{"EventTasks"|translate}}</h4>
+            </div>
+            <ul class="list-unstyled col-12 px-0">
+                <li class="badge badge-secondary col-12 text-left" *ngFor="let item of tasks">
+                    {{item.title}}-{{item.startDate}}-{{item.endDate}}-{{item.priority}}
+                    <a class="float-right" (click)="removeFromTasks(item)"><img
+                            src="../../../assets/imgs/icons/icons8_trash_can_26px.png" class="img-fluid icon" alt=""
+                            srcset=""></a>
+                </li>
+            </ul>
+            <div class="field-group col-12 px-0">
+                <label for='name'>{{'TaskName'|translate}}</label>
+                <input id="name" name="name" type="text" required formControlName="title">
+                <div *ngIf="form.title.errors && form.title.touched" class="errors">
+                    <div *ngIf="form.title.errors.required" class="errors">{{'Required'|translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="field-group col-12 col-md-6 px-0 pr-1">
+                <label for='startDate'>{{'Date'|translate}}</label>
+                <p-calendar styleClass="w-100 p-0 mb-3" form [minDate]="minDate" dateFormat='dd-mm-yy'
+                    formControlName="startDate" dataType='string' appendTo="body">
+                </p-calendar>
+                <div *ngIf="form.startDate.errors && form.startDate.touched" class="errors">
+                    <div *ngIf="form.startDate.errors.required" class="errors">{{'Required'|translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="field-group col-12 col-md-6 px-0">
+                <label for='endDate'>{{'Date'|translate}}</label>
+                <p-calendar styleClass="w-100 p-0 mb-3" form [minDate]="minDate" dateFormat='dd-mm-yy'
+                    formControlName="endDate" dataType='string' appendTo="body">
+                </p-calendar>
+                <div *ngIf="form.endDate.errors && form.endDate.touched" class="errors">
+                    <div *ngIf="form.endDate.errors.required" class="errors">{{'Required'|translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="field-group col-12  px-0">
+                <label for='endDate'>{{'GivePiriorty'|translate}}</label>
+
+                <select class="w-100" formControlName="priority">
+                    <option value="heigh">{{"Heigh"|translate}}</option>
+                    <option value="medium">{{"Medium"|translate}}</option>
+                    <option value="heigh">{{"Low"|translate}}</option>
+                </select>
+                <div *ngIf="form.priority.errors && form.priority.touched" class="errors">
+                    <div *ngIf="form.priority.errors.required" class="errors">{{'Required'|translate}}
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-12 text-left px-0 mt-2">
+                <button class="btn text-danger">
+                    <img src="../../assets/imgs/icons/icons8_trash_can_26px.png" class="icon" alt="" srcset="">
+                    {{"DeleteTask"|translate}}
+                </button>
+            </div> -->
+            <div class="col-12 text-left px-0 mt-2">
+                <button class="btn btn-brand" type="submit">
+                    {{tasks.length>=1?base.translate("AddAnother"):base.translate("AddTask")}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+</form>

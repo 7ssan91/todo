@@ -1,0 +1,38 @@
+@use "../../assets/css/variables.scss"as v;
+
+.tasks-list {
+  .list-header {
+    background-color: #ccd2d0;
+  }
+
+  .work-task {
+    background-color: #ccd2d0;
+  }
+
+  .personal-task {
+    background-color: #7bdebd;
+  }
+
+  .family-task {
+    background-color: #d9e9ab;
+  }
+
+  .list-unstyled {
+    .list-item {
+      @include v.block-shadow;
+
+    }
+  }
+
+  .border-danger {
+    border-left: 2px solid #dc3545;
+  }
+
+  .border-warning {
+    border-left: 2px solid #dc3545;
+  }
+
+  .border-success {
+    border-left: 2px solid #dc3545;
+  }
+}

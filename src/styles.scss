@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+@use "assets/css/variables.scss"as v;
+
+.icon {
+  width: 20px;
+}
+
+.text-success {
+  color: #5fd978 !important;
+}
+
+//dialog style
+.p-dialog {
+  max-height: unset !important;
+}
+
+.dialog-md {
+  width: 40vw;
+}
+
+.auto-y {
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .dialog-md {
+    width: 100vw;
+  }
+}
+
+//btns style
+.btn-brand {
+  background-color: v.$brand-color;
+  color: v.$white-color;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  border-radius: .25rem;
+  padding: 7px 15px;
+
+  & .ladda-label {
+    color: v.$white-color;
+    // font-weight: bold;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// input field design
+.field-group {
+  position: relative;
+
+  select {
+    height: 44px;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    height: 44px;
+    border: solid 1px v.$black-color;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 10px 15px 0;
+    z-index: 3;
+    background: transparent;
+
+    &:focus {
+      border-color: v.$brand-color;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  label {
+    position: relative;
+    cursor: text;
+    z-index: 5;
+    top: 15px;
+    left: 5px;
+    font-size: 12px;
+    background: #fff;
+    padding: 0 10px;
+    color: #707070;
+    transition: all 0.3s ease;
+
+  }
+}
+
+.field-group input:focus,
+input:focus {
+  border-color: v.$brand-color
+}
+
+
+
+.field-group input:focus+label {
+  color: v.$brand-color
+}
+
+.errors {
+  color: red;
+  font-size: 12px;
+}

@@ -1,0 +1,27 @@
+@use "../../../assets/css/variables.scss"as v;
+
+.navbar-light {
+  background-color: #26a3c4;
+
+  // navbar logo 
+  .navbar-brand {
+    img {
+      width: 90px;
+    }
+  }
+
+  //navbar list 
+  .navbar-nav {
+    .nav-link {
+      color: v.$white-color;
+    }
+
+    .nav-item {
+      .profile-img {
+        img {
+          max-width: 45px;
+        }
+      }
+    }
+  }
+}

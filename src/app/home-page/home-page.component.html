@@ -1,0 +1,67 @@
+<div class="my-task">
+    <div class="container">
+        <!-- title and add action  -->
+        <div class="row py-3">
+            <div class="col-6 col-md-6 text-left">
+                <h1 class="h6 font-weight-bold">
+                    {{"MyTasks"|translate}}
+                </h1>
+            </div>
+            <div class="col-6 col-md-6 text-right">
+                <button class="btn small font-weight-bold" (click)="eventAction('')">
+                    <i class="pi pi-plus mr-1 font-weight-bold"></i>
+                    {{"AddNewEvent"|translate}}
+                </button>
+            </div>
+        </div>
+        <!-- to do list  -->
+        <div class="row">
+            <div class="col-12 col-md-4 px-0 mb-3" *ngFor="let event of eventList">
+                <div class="col-12  row mx-0 tasks-list">
+                    <div class="col-12 list-header rounded py-3">
+                        <a class="list-name float-left text-dark" data-toggle="collapse"
+                            [href]="'#collapse'+event.id">{{event.eventName}}</a>
+                        <button class="list-name float-right btn p-0" (click)="eventAction(event.id)">
+                            <img src="../../assets/imgs/icons/Icon feather-edit.png" class="icon" alt="" srcset="">
+                        </button>
+                    </div>
+                    <div class="col-12 py-2 px-0" class="collapse show" [id]="'collapse'+event.id">
+                        <h2 class="h6 font-weight-bold mt-2">
+                            {{"Tasks"|translate}}:
+                        </h2>
+                        <ul class="list-unstyled row mx-0">
+                            <li class="col-12 list-item  rounded p-2 mb-3" *ngFor="let item of event.tasks"
+                                [class]="item.priority=='heigh'?'border-danger':item.priority=='medium'?'border-warning':'border-success'">
+                                <h3 class="h6 font-weight-bold">
+                                    {{item.title}}
+                                </h3>
+                                <p class="small text-muted"> 
+                                    <span class="mr-1">{{"StartDate"|translate}}:</span>
+                                    {{item.startDate|date}}
+                                </p>
+                                <p class="small text-muted">
+                                    <span class="mr-1">{{"EndDate"|translate}}:</span>
+                                    {{item.startDate|date }}
+                                </p>
+                                <h4 class="small font-weight-bold">{{"Piriorty"|translate}}:
+                                    <span
+                                        [class]="item.priority=='heigh'?'text-danger':item.priority=='medium'?'text-warning':'text-success'">
+                                        {{item.priority}}
+                                    </span>
+                                </h4>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- add new event  -->
+<p-dialog header="Add Event" [(visible)]="display" position="top" [modal]=true dismissableMask=false
+    maskStyleClass='auto-y' styleClass='dialog-md'>
+    <app-event-form [eventId]='eventId' *ngIf="display" (getUpdate)="getUpdate($event)"></app-event-form>
+</p-dialog>

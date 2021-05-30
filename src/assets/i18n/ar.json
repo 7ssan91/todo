@@ -1,0 +1,19 @@
+{
+    "AddNewEvent": "Add new event",
+    "Tasks": "Tasks",
+    "StartDate": "Start Date",
+    "EndDate": "End Date",
+    "EventTasks": "Tasks on this Event",
+    "TaskName": "Task Name",
+    "EventName": "Event Name",
+    "GivePiriorty": "Give it a priority",
+    "Heigh": "Heigh",
+    "Medium": "Medium",
+    "Low": "Low",
+    "SaveEvent": "Save Event",
+    "UpdateEvent": "update Event",
+    "Cancel": "Cancel",
+    "AddTask": "Add task",
+    "AddAnother": "Add another task",
+    "DeleteTask": "Delete this task"
+}

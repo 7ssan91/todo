@@ -1,0 +1,33 @@
+<form [formGroup]="addForm" (ngSubmit)="addEvent(addForm)">
+    <div class="container">
+        <div class="row">
+            <div class="field-group col-12 px-0">
+                <label for='eventName'>{{'EventName'|translate}}</label>
+                <input id="eventName" name="eventName" type="text" required formControlName="eventName">
+                <div *ngIf="form.eventName.errors && form.eventName.touched" class="errors">
+                    <div *ngIf="form.eventName.errors.required" class="errors">{{'Required'|translate}}
+                    </div>
+                </div>
+            </div>
+            <div class="field-group col-12 px-0">
+                <label for='dueDate'>{{'Date'|translate}}</label>
+                <p-calendar styleClass="w-100 p-0 mb-3" form [minDate]="minDate" dateFormat='dd-mm-yy'
+                    formControlName="dueDate" dataType='string' appendTo="body">
+                </p-calendar>
+
+                <div *ngIf="form.dueDate.errors && form.dueDate.touched" class="errors">
+                    <div *ngIf="form.dueDate.errors.required" class="errors">{{'Required'|translate}}
+                    </div>
+                </div>
+            </div>
+            <app-task-form [eventId]="eventId" (data)="getTasksData($event)"></app-task-form>
+        </div>
+    </div>
+    <div class="row text-right dialog-footer">
+        <div class="col-12 text-right">
+            <button class="btn"> {{"Cancel"|translate}}</button>
+            <button class="btn btn-brand"
+                type="submit">{{eventId==""?base.translate("SaveEvent"):base.translate("UpdateEvent")}}</button>
+        </div>
+    </div>
+</form>

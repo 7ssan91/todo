@@ -1,0 +1,32 @@
+$red-color: #FE3D5E;
+$gray-color: #9e9e9e;
+$border-color: #a6e8f7;
+$font-color: #333;
+$brand-color: #26a3c4;
+$secondary-color:rgb(116 131 148);
+$brand-color-light: #fee9df;
+$white-color:#fff;
+$warning-color:#F4AA24;
+$header-color:#707070;
+$black-color:#000;
+$brand-color-dark:#085671;
+$radius-small: 3px;
+$small-font:14px;
+$normal-font:18px;
+$large-font:24px;
+
+$break-small: 600px;
+$break-large: 1200px;
+
+:root {
+  --brand-color: #006782;
+  --white-color: #fbfbfb;
+}
+
+@mixin block-shadow {
+  overflow: hidden;
+  position: relative;
+  // border: none;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2) !important;
+  border-radius: .25rem;
+}
